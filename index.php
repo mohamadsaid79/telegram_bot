@@ -3,6 +3,10 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+// تسجيل كل طلب وارد في ملف نصي
+file_put_contents(__DIR__ . '/bot_log.txt', date('Y-m-d H:i:s') . "\n" . file_get_contents("php://input") . "\n-------------------\n", FILE_APPEND);
+
 // Telegram Bot Token
 $botToken = '8093702414:AAH8rhE2HKCaHtwaPPPDea7JDU5T_mYvgoc';
 $apiURL = "https://api.telegram.org/bot$botToken/";
